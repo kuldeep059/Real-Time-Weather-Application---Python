@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>WeatherVista</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background: linear-gradient(135deg, #6dd5ed, #2193b0);
+            color: #fff;
+            overflow: hidden; /* Prevent scrollbars */
+        }
+
+        .background-animation {
+            position: absolute;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(135deg, #6dd5ed, #2193b0);
+            animation: backgroundShift 15s linear infinite;
+        }
+
+        @keyframes backgroundShift {
+            0% { transform: translate(-25%, -25%); }
+            100% { transform: translate(0%, 0%); }
+        }
+
+        .weather-container {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+            text-align: center;
+            width: 350px;
+            z-index: 1; /* Place on top of animation */
+        }
+
+        /* ... (rest of the CSS remains the same) ... */
+
+        input[type="text"] {
+            padding: 12px 20px;
+            margin: 8px 0;
+            box-sizing: border-box;
+            border: none;
+            border-radius: 8px;
+            background: rgba(255, 255, 255, 0.2);
+            color: #fff;
+            width: 80%;
+        }
+
+        button {
+            background-color: #007bff;
+            color: white;
+            padding: 14px 20px;
+            margin: 10px 0;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            width: 85%;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+            transform: scale(1.05);
+        }
+
+        h2 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        p {
+            font-size: 1.1em;
+            margin: 8px 0;
+            line-height: 1.6;
+        }
+
+        .error {
+            color: #ff4d4d;
+            font-weight: bold;
+        }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="background-animation"></div>
+    <div class="weather-container">
+        <h2>WeatherVista</h2>
+        <h3>Capitalize the first letter</h3>
+        <form method="POST">
+            <input type="text" name="city" placeholder="Enter city name" required>
+            <button type="submit">Get Weather</button>
+        </form>
+
+        {% if weather_info %}
+            <p><strong>{{ weather_info.location }}</strong></p>
+            <p>{{ weather_info.date_time }}</p>
+            <p>Temperature: {{ weather_info.temp_city }} °C</p>
+            <p>Weather: {{ weather_info.weather_desc }}</p>
+            <p>Humidity: {{ weather_info.hmdt }} %</p>
+            <p>Wind Speed: {{ weather_info.wind_spd }} kmph</p>
+        {% elif error_message %}
+            <p class="error">{{ error_message }}</p>
+        {% endif %}
+    </div>
+</body>
+</html>
