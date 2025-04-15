@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Weather History</title>
+    <style>
+        body { font-family: Arial; padding: 20px; }
+        table { width: 100%; border-collapse: collapse; }
+        th, td { padding: 8px 12px; border: 1px solid #ddd; text-align: center; }
+        th { background-color: #f2f2f2; }
+        a { text-decoration: none; color: #007bff; }
+    </style>
+</head>
+<body>
+    <h2>Recent Weather Queries</h2>
+    <a href="/">← Back to Home</a><br><br>
+
+    {% if history_data %}
+        <table>
+            <tr>
+                <th>City</th>
+                <th>Date & Time</th>
+                <th>Temperature (°C)</th>
+                <th>Weather</th>
+                <th>Humidity (%)</th>
+                <th>Wind Speed (m/s)</th>
+            </tr>
+            {% for entry in history_data %}
+                <tr>
+                    <td>{{ entry.location }}</td>
+                    <td>{{ entry.date_time }}</td>
+                    <td>{{ entry.temp_city }}</td>
+                    <td>{{ entry.weather_desc }}</td>
+                    <td>{{ entry.hmdt }}</td>
+                    <td>{{ entry.wind_spd }}</td>
+                </tr>
+            {% endfor %}
+        </table>
+    {% else %}
+        <p>No weather history found.</p>
+    {% endif %}
+</body>
+</html>

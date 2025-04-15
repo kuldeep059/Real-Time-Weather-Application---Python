@@ -1,0 +1,12 @@
+2025-04-15 16:40:51,867 [INFO] __main__: Fetching weather for location: Delhi
+2025-04-15 16:40:52,097 [INFO] __main__: Weather data stored in MongoDB for DELHI.
+2025-04-15 16:41:31,172 [INFO] __main__: Fetching weather for location: Delhi
+2025-04-15 16:41:31,404 [INFO] __main__: Weather data stored in MongoDB for DELHI.
+2025-04-15 16:41:54,597 [INFO] __main__: Fetching weather for location: Delhi
+2025-04-15 16:41:54,862 [INFO] __main__: Weather data stored in MongoDB for DELHI.
+2025-04-15 16:41:58,263 [INFO] __main__: Fetching weather for location: Delhi
+2025-04-15 16:41:58,436 [INFO] __main__: Weather data stored in MongoDB for DELHI.
+2025-04-15 16:43:08,293 [INFO] __main__: Fetching weather for location: Delhi
+2025-04-15 16:43:08,540 [INFO] __main__: Weather data stored in MongoDB for DELHI.
+2025-04-15 16:43:13,987 [INFO] __main__: Fetching weather for location: Pune
+2025-04-15 16:43:14,202 [INFO] __main__: Weather data stored in MongoDB for PUNE.
