@@ -90,7 +90,8 @@ def index():
             error_message = "Please enter a city name."
 
     return render_template('index.html', weather_info=weather_info, error_message=error_message)
+    
 
-# Main entry
 if __name__ == '__main__':
-    app.run(debug=True) 
+    port = int(os.environ.get("PORT", 8000))  # Azure sets this PORT
+    app.run(host='0.0.0.0', port=port)
