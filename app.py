@@ -92,6 +92,17 @@ def index():
 
     return render_template('index.html', weather_info=weather_info, error_message=error_message)
 
+# Route to show weather query history
+@app.route('/history')
+def history():
+    try:
+        history_data = list(weather_collection.find().sort("timestamp", DESCENDING).limit(10))
+    except Exception as e:
+        logger.error(f"Failed to fetch history: {e}")
+        history_data = []
+
+    return render_template('history.html', history_data=history_data)
+
 # Run the app (for Azure deployment or local run)
 if __name__ == '__main__':
     port = int(os.environ.get("PORT", 8000))  # Azure provides this PORT
