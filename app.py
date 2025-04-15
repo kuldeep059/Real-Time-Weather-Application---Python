@@ -26,9 +26,9 @@ if not user_api:
     logger.error("API key not found. Please set the 'CURRENT_WEATHER_API_KEY' environment variable.")
     exit()
 
-# MongoDB setup (Cosmos DB connection)
-mongo_uri = os.environ.get("MONGO_URI")
-db_name = os.environ.get("DB_NAME")
+# MongoDB setup (Cosmos DB or local)
+mongo_uri = os.environ.get("MONGO_URI", "mongodb://localhost:27017/")
+db_name = os.environ.get("DB_NAME", "weather_db")
 client = pymongo.MongoClient(mongo_uri)
 db = client[db_name]
 
@@ -61,6 +61,7 @@ def get_weather(location):
             'weather_desc': weather_desc,
             'hmdt': hmdt,
             'wind_spd': wind_spd,
+            'timestamp': datetime.utcnow()  # Required for TTL index to work
         }
 
         # Insert the weather data into MongoDB
@@ -90,8 +91,8 @@ def index():
             error_message = "Please enter a city name."
 
     return render_template('index.html', weather_info=weather_info, error_message=error_message)
-    
 
+# Run the app (for Azure deployment or local run)
 if __name__ == '__main__':
-    port = int(os.environ.get("PORT", 8000))  # Azure sets this PORT
+    port = int(os.environ.get("PORT", 8000))  # Azure provides this PORT
     app.run(host='0.0.0.0', port=port)
