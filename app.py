@@ -3,6 +3,7 @@ import requests
 import os
 import logging
 from datetime import datetime
+import pymongo
 from dotenv import load_dotenv
 
 # Load .env variables (if running locally)
@@ -19,11 +20,17 @@ logging.basicConfig(
 logger = logging.getLogger(__name__)
 
 # Get API key
-user_api = os.environ.get('current_weather_data')
+user_api = os.environ.get('CURRENT_WEATHER_API_KEY')
 
 if not user_api:
-    logger.error("API key not found. Please set the 'current_weather_data' environment variable.")
+    logger.error("API key not found. Please set the 'CURRENT_WEATHER_API_KEY' environment variable.")
     exit()
+
+# MongoDB setup (Cosmos DB connection)
+mongo_uri = os.environ.get("MONGO_URI")
+db_name = os.environ.get("DB_NAME")
+client = pymongo.MongoClient(mongo_uri)
+db = client[db_name]
 
 # Weather fetch logic
 def get_weather(location):
@@ -56,6 +63,14 @@ def get_weather(location):
             'wind_spd': wind_spd,
         }
 
+        # Insert the weather data into MongoDB
+        try:
+            weather_collection = db.weather_data
+            weather_collection.insert_one(weather_data)
+            logger.info(f"Weather data for {location} stored in MongoDB.")
+        except Exception as e:
+            logger.error(f"Error storing data in MongoDB: {e}")
+
         logger.info(f"Weather data fetched successfully for {location}")
         return weather_data
 
@@ -78,4 +93,4 @@ def index():
 
 # Main entry
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(debug=True) 
