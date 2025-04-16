@@ -2,91 +2,104 @@
 
 WeatherVista is a web application that provides real-time weather information for any city you search. It uses the OpenWeatherMap API to fetch current weather data and displays it in a clean and attractive user interface.
 
-## Features
+## 🌟 Features
 
-* **Real-Time Weather:** Fetches and displays current temperature, weather description, humidity, and wind speed.
-* **User-Friendly Interface:** Attractive and responsive design with an animated background.
-* **City Search:** Allows users to search for weather in any city.
-* **Error Handling:** Displays clear error messages for invalid city names.
-* **.env Support:** Uses a `.env` file to securely store your OpenWeatherMap API key.
+- **Real-Time Weather**: Fetches and displays current temperature, weather description, humidity, and wind speed.  
+- **User-Friendly Interface**: Attractive and responsive design with an animated background.  
+- **City Search**: Allows users to search for weather in any city.  
+- **Error Handling**: Displays clear error messages for invalid city names.  
+- **.env Support**: Uses a `.env` file to securely store your OpenWeatherMap API key.
 
-## Technologies Used
+## 🔧 Technologies Used
 
-* **Python:** Backend logic and API integration.
-* **Flask:** Web framework for creating the application.
-* **Requests:** For making HTTP requests to the OpenWeatherMap API.
-* **python-dotenv:** For managing environment variables.
-* **HTML/CSS:** Frontend design and layout.
-* **OpenWeatherMap API:** For weather data.
+- **Python**: Backend logic and API integration  
+- **Flask**: Web framework for creating the application  
+- **Requests**: For making HTTP requests to the OpenWeatherMap API  
+- **python-dotenv**: For managing environment variables  
+- **HTML/CSS**: Frontend design and layout  
+- **OpenWeatherMap API**: For weather data  
 
-## Prerequisites
+## 🧰 Prerequisites
 
-Before running the application, ensure you have the following installed:
+Ensure you have the following installed:
 
-* Python 3.6+
-* pip (Python package installer)
+- Python 3.6+  
+- `pip` (Python package installer)
 
-## Installation
+## 🚀 Installation
 
-1.  **Clone the repository:**
+1. **Clone the repository**:
+   ```bash
+   git clone <repository_url>
+   cd WeatherVista
 
-    ```bash
-    git clone <repository_url>
-    cd WeatherVista
-    ```
+## 🛠️ Setup Instructions
 
-2.  **Create a virtual environment (recommended):**
+### ✅ Create a Virtual Environment (Recommended)
 
-    ```bash
-    python -m venv venv
-    source venv/bin/activate  # On macOS/Linux
-    venv\Scripts\activate  # On Windows
-    ```
+```bash
+python -m venv venv
+source venv/bin/activate  # On macOS/Linux
+venv\Scripts\activate     # On Windows
 
-3.  **Install dependencies:**
+## ☁️ Azure Cloud Deployment and DevOps Integration
 
-    ```bash
-    pip install -r requirements.txt
-    ```
-    (Create a requirements.txt file with:
-    ```
-    Flask
-    requests
-    python-dotenv
-    ```
-    )
+**WeatherVista** is deployed on **Microsoft Azure App Service** with end-to-end DevOps implementation.
 
-4.  **Create a `.env` file:**
+---
 
-    Create a `.env` file in the root directory of the project and add your OpenWeatherMap API key:
+### ✅ Cloud Infrastructure & Deployment Using Azure
 
-    ```
-    current_weather_data=YOUR_OPENWEATHERMAP_API_KEY
-    ```
+- Hosted on Azure App Service  
+- 🌐 **Live Link**: [WeatherVista](https://weather-vista-h9gqe0ehf2b9e6ac.eastus-01.azurewebsites.net)  
+- Deployment is done using GitHub CI/CD workflows.
 
-    Replace `YOUR_OPENWEATHERMAP_API_KEY` with your actual API key.
+---
 
-5.  **Run the application:**
+### 🔄 CI / CD Pipeline
 
-    ```bash
-    python app.py
-    ```
+- **GitHub Actions**: Automatically builds and deploys on every push to the main branch.  
+- **Zero downtime deployment** with integrated build steps.
 
-6.  **Open your browser:**
+---
 
-    Open your web browser and go to `http://127.0.0.1:5000/`.
+### 🔐 Security & Compliance
 
-## Usage
+- **Environment Variables**: API keys and secrets are securely stored in **Azure Application Settings**, not in the code repository.  
+- No sensitive data checked into version control.
 
-1.  Enter the name of the city you want to get weather information for in the input field.
-2.  Click the "Get Weather" button.
-3.  The application will display the current weather information for the specified city.
-4.  If the city is not found, an error message will be displayed.
+---
 
-## Contributing
+### 📊 Monitoring & Logging
 
-Contributions are welcome! If you find any bugs or have suggestions for improvements, please feel free to open an issue or submit a pull request.
+- **Azure Monitoring Enabled**: View real-time logs in:
+  - **KUDU (Advanced Tools)**
+  - **Azure App Service > Logs** section  
+- Application health and error tracking are turned on for better observability.
 
-## License
+---
 
-This project is licensed under the [MIT License](LICENSE).
+### 🗃️ Database and Storage Management
+
+- While this app doesn't require a database, the infrastructure supports integration with **Azure Storage** or **Azure SQL** for future enhancements.
+
+---
+
+### 📈 Log Analysis & Automation
+
+- Application logs are archived and can be used with **Azure Log Analytics**.  
+- **Automated alerts** can be configured for error patterns or high latency.
+
+---
+
+### 🧪 Future Improvements
+
+- 5-day weather forecast integration  
+- Location-based weather detection  
+- Weather icons and improved animations  
+- Mobile-first enhancements
+
+---
+
+Feel free to **fork**, **star**, and **contribute** to this project! 😊  
+For any questions or feature requests, raise an issue or contact via GitHub.
