@@ -32,12 +32,10 @@ Ensure you have the following installed:
    ```bash
    git clone <repository_url>
    cd WeatherVista
-
 ## 🛠️ Setup Instructions
 
 ### ✅ Create a Virtual Environment (Recommended)
 
-```bash
 python -m venv venv
 source venv/bin/activate  # On macOS/Linux
 venv\Scripts\activate     # On Windows
