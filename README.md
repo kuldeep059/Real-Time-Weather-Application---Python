@@ -35,10 +35,10 @@ Ensure you have the following installed:
 ## 🛠️ Setup Instructions
 
 ### ✅ Create a Virtual Environment (Recommended)
-
-python -m venv venv
-source venv/bin/activate  # On macOS/Linux
-venv\Scripts\activate     # On Windows
+    ```bash
+      python -m venv venv
+      source venv/bin/activate  # On macOS/Linux
+      venv\Scripts\activate     # On Windows
 
 ## ☁️ Azure Cloud Deployment and DevOps Integration
 
