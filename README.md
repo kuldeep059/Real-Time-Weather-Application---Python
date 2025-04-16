@@ -79,8 +79,9 @@ Ensure you have the following installed:
 
 ### 🗃️ Database and Storage Management
 
-- While this app doesn't require a database, the infrastructure supports integration with **Azure Storage** or **Azure SQL** for future enhancements.
-
+- This application uses **Azure Cosmos DB** to store and manage weather-related or user-specific data (if applicable).
+- Cosmos DB provides scalable, globally distributed database capabilities with high availability.
+- Future enhancements may include storing search history, user preferences, or weather logs in Cosmos DB.
 ---
 
 ### 📈 Log Analysis & Automation
